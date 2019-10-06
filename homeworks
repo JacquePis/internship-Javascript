@@ -1,0 +1,13 @@
+const odd_even = function (number) {
+if (typeOf(number) === "number") {
+  if (number % 2 === 0) {
+    console.log("The number is even!");
+    }
+  else if (number % 2 !== 0) {
+    console.log("The number is odd!");
+    }
+  }
+  else {
+    console.log("The input is not a number!");
+  }
+}
