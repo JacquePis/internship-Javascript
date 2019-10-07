@@ -43,7 +43,7 @@ const addition = function(number) {
     }
 }
 
-//problem4 not finished
+//problem4
 const move_last_digit = function (number) {
   if (number < 0) {
   return 0;
@@ -56,7 +56,7 @@ const move_last_digit = function (number) {
 
     else {
       var last_digit = number % 10;
-      console.log(String(last_digit) + String(number - last_digit));
+      console.log(String(last_digit) + Math.floor(number / 10));
     }
   }
 }
@@ -69,10 +69,33 @@ console.log(sum / 5);
 
 }
 
-//problem6 not finished
+//problem6 (I would do it using an array, but since we have not covered that yet this is the solution)
 const sort = function(num1, num2, num3) {
-if (num1 < num2 )
+if (num1 < num2 && num1 < num3 && num2 < num3) {
+console.log(num1+ " , " + num2 + " , " + num3);
+}
 
+else if (num1 < num2 && num1 < num3 && num3 < num2) {
+console.log(num1 + " , " + num3 + " , " + num2);
+}
+
+
+else if (num2 < num1 && num2 < num3 && num1 < num3) {
+console.log(num2 + " , "  + num1 + " , " + num3);
+}
+
+else if (num2 < num1 && num2 < num3 && num3 < num1) {
+console.log(num2 + " , " + num3 + " , " + num1);
+}
+
+
+else if (num3 < num2 && num3 < num1 && num1 < num2) {
+console.log(num3 + " , " + num1 + " , " + num2);
+}
+
+else {
+console.log(num3 + " , " + num2 + " , " + num1);
+}
 
 }
 
@@ -93,7 +116,7 @@ const sign = function (num1, num2, num3) {
 
 }
 
-//problem8 not finished
+//problem8
 const quadratic = function (a, b, c) {
   if (a === 0) {
     console.log("Enter valid constants");
@@ -105,8 +128,8 @@ const quadratic = function (a, b, c) {
       console.log("solution does not exist");
     }
     else {
-      let r1 = ((-1) * b - Math.sqrt(d)) / 2*a;
-      let r2 = ((-1) * b + Math.sqrt(d)) / 2*a;
+      let r1 = ((-1) * b - Math.sqrt(d)) / (2*a);
+      let r2 = ((-1) * b + Math.sqrt(d)) / (2*a);
         if(r1 === r2) {
           console.log(r1);
         }
@@ -132,7 +155,7 @@ var j = 0;
     j += 1;
   }
 
-//problem10 not finished
+//problem10
 const digit_num = function (digit, number) {
   if (digit > 9 || digit < 0) {
     return 0;
@@ -145,21 +168,23 @@ const digit_num = function (digit, number) {
         console.log("Yes");
       }
       else {
-        console.log("No");
+      console.log("No");
       }
     }
+   }
   }
-}
+  
+
 
 //problem11 not finished
 const reverse = function (number) {
   let str_number = String(number);
-  let last_digit = Number(str_number[str_number.length - 1]);
-  let first_digit = Number(str_number[0]);
-  Math.floor(number / 10);
-str_number[str_number.length - 1] = first_digit;
-str_number[0] = last_digit;
-
+  var first_digit = Number(str_number[0]);
+  var last_digit = number % 10;
+  var no_last_digit = Math.floor(number / 10);
+  var no_first digit = number - first_digit * 
+      
+ 
 console.log(Number(str_number));
 }
 
