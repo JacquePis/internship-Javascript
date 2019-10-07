@@ -175,7 +175,7 @@ const digit_num = function (digit, number) {
   }
  
  
-//problem11 not finished
+//problem11 not finished!!
 const reverse = function (number) {
   let str_number = String(number);
   var first_digit = Number(str_number[0]);
