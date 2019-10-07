@@ -154,8 +154,9 @@ const digit_num = function (digit, number) {
 //problem11 not finished
 const reverse = function (number) {
   let str_number = String(number);
-  let last_digit = str_number[str_number.length - 1];
-  let first_digit = str_number[0];
+  let last_digit = Number(str_number[str_number.length - 1]);
+  let first_digit = Number(str_number[0]);
+  Math.floor(number / 10);
 str_number[str_number.length - 1] = first_digit;
 str_number[0] = last_digit;
 
