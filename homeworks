@@ -188,8 +188,19 @@ const area = function(shape_name, a, b) {
 
 //problem13
 const difference = function(number) {
-let str_number
-}
+  let str_number = String(number);
+  let max = str_number[0];
+  let min = str_number[0];
+    for (let i = 0; i < str_number.length; i++) {
+      if (Number(str_number[i]) < min) {
+        min = Number(str_number[i]);
+      }
+      else if (Number(str_number[i]) > max) {
+        max = Number(str_number[i]);
+      }
+    }
+    console.log(max - min);
+  }
 
 
 
