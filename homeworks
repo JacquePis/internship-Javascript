@@ -175,20 +175,25 @@ const digit_num = function (digit, number) {
   }
  
  
-//problem11 not finished!!
+//problem11
 const reverse = function (number) {
-  let str_number = String(number);
-  var first_digit = Number(str_number[0]);
-  var last_digit = String(number % 10);
+  if (number === 0) {
+    console.log("0");
+  }
+
+  else {
+    let str_number = String(number);
+    var first_digit = String(number % 10);
+    var last_digit = str_number[0];
   
     let a = 1;
       for (let i = 0; i < str_number.length - 1; i++) {
         a = a * 10;
       }
-  
-  var no_first_digit = integer(number / a);
-  var no_last_digit = Math.floor(no_first_digit / 10);
-    console.log(first_digit + no_last_digit + last_digit);
+    var no_first_digit = number % a;
+    var no_last_digit = Math.floor(no_first_digit / 10);
+      console.log(first_digit + no_last_digit + last_digit);
+    }
 }
 
 
