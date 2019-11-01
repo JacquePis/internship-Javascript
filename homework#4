@@ -1,0 +1,130 @@
+//Homework4
+
+//problem1
+const new_arr = function (array, number) {
+let arr = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > number) {
+            arr.push(array[i]);
+        }
+    }
+    if (arr.length === 0) {
+        console.log("Such values do not exist");
+    }
+    else {
+        console.log(arr); }
+    }
+
+//problem2
+const between = function (num1, num2) {
+    if (num2 < num1) {
+        return;
+    }
+    else {
+        let hit = false;
+        for (let i = num1 + 1; i < num2; i++) {
+            let i_str = "" + i;
+            let j;
+            for (j = 0; j < i_str.length; j++) {
+                if (Number(i_str.charAt(j)) % 2 !== 0) {
+                    break;
+                }
+            }
+            if (j === i_str.length) {
+                hit = true;
+                console.log(i);
+            }
+        }
+    if (!hit) console.log("Such numbers do not exist"); 
+    }
+}
+
+
+//problem3
+const odd = function (number) {
+    if (number === 0) {
+        return false;
+    }
+
+let number_str = "" + number;
+    if (number_str.length === 1) {
+        return (number_str % 2 !== 0);
+    }
+
+    else if (Number(number_str.charAt(number_str.length - 1)) % 2 !== 0) {
+        number = Math.floor(number / 10);
+        return odd(number);
+    }
+
+    else {
+        return false;
+    }
+}
+
+//problem4
+let min_pos = Number.MAX_SAFE_INTEGER;
+const minimal_positive = function (array) {
+
+
+    if (array.length === 0)
+       return min_pos;
+    else {
+        if (array[array.length - 1] < 0) {
+            array.pop();
+            return minimal_positive(array);
+        }
+        else {
+            if (array[array.length - 1] < min_pos) {
+                min_pos = array[array.length - 1];
+            }
+            array.pop();
+            return minimal_positive(array);
+           
+        }
+    }
+}
+
+
+//problem5
+const violation = function (array) {
+let i;
+    for (i = 0; i < array.length - 1; i++) {
+        if (array[i] > array[i + 1]) {
+            console.log(i + 1);
+            break;  
+        }
+    }
+
+        if (i === array.length - 1) {
+            console.log("-1");
+        }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
