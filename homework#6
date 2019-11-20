@@ -1,0 +1,107 @@
+//homework6
+
+//problem1
+const largest_prod = function (array) {
+let product = 1;
+
+    if (array.length < 1) {
+        console.log("The array is empty");
+            return;
+    }
+
+    else if (array.length === 1) {
+        console.log("There is only one element in the array!");
+            return;
+    }
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] * array[i + 1] > product) {
+            product = array[i] * array[i + 1];
+
+        }
+    }
+        console.log(product);
+}
+
+//problem2
+const max_min = function (array) {
+    if (array.length < 1) {
+        console.log("Invalid input");
+            return;
+    }
+let min = array[0];
+let max = array[0];
+let missing_numbers;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i];
+        }
+
+        else if (array[i] > max) {
+            max = array[i];
+        }
+    }
+        missing_numbers = (max - min) - (array.length - 1);
+        console.log(missing_numbers);
+}
+
+//problem3
+const acronym = function (string) {
+let array = [];
+let up = string.charAt(0).toUpperCase();
+array[0] = up;
+    for (let i = 0; i < string.length; i++) {
+        if (string.charAt(i) === " ") {
+            let upper = string.charAt(i + 1).toUpperCase();
+            array.push(upper);
+        }
+    }
+        let x = array.join("");
+        console.log(x);
+}
+
+//problem4
+const substrings = function (string, number) {
+    let array = [];
+        for (let j = 0; j < number; j++) {
+            array.push(string.charAt(j));
+        }
+    let x = array.join("");
+    console.log(x);
+    let new_str = string.slice(1);
+        if (new_str.length < number) {
+            return;
+        }
+    substrings(new_str, number);
+}
+
+//problem5
+const tree = function (array, id = 0, key = 'parent') {
+    const children = array.filter(e => e[key] === id);
+        children.map( child => {
+            return {
+                ...child,
+                children: tree(array, child.id)
+            }
+        }
+
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
