@@ -1,0 +1,172 @@
+//homework3
+
+//problem1 (further to discuss)
+const star = function (number) {
+let space1 = "";
+let space2 = "";
+let num = number;
+for (let i = 0; i < (2*number) - 1; i++) {
+space1 += " "; 
+for (let j = 0; j < (2*num) - 1; j++) {
+space2 += " ";
+}
+console.log(space1 + "*" + space2 + "*");
+space2 = "";
+num--;
+}
+}
+
+//another solution (further to discuss)
+const star = function (n) {
+    let i, j;
+    let count =  (n * 2) - 1;
+
+    for(i = 1; i <= count; i++)
+    {
+        for(j = 1; j <= count; j++)
+        {
+            if(j === i || j === count - i + 1)
+            {
+                console.log("*");
+            }
+            else
+            {
+                console.log(" ");
+            }
+        }
+        console.log("\n");
+    }
+
+}
+
+//problem2 
+const frequency = function (array) {
+    let count = 1;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === array[i + 1]) {
+                count++;
+            }
+
+            else {
+                if (count === 1) { 
+                    console.log(array[i] + ":" + 1 / array.length);
+                }
+                else {         let frequency = count / array.length;
+                    console.log(array[i] + ":" + frequency);
+                    count = 1;
+                }
+            }
+        }
+    }
+
+//problem3 
+const int_str = function (array) {
+    let str_count = 0;
+    let int_count = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (typeof array[i] === 'string') {
+            str_count++;
+        }
+
+        else {
+            int_count++;
+        }
+    }
+    console.log("Numbers: " + int_count + " , " + "Strings: " + str_count);
+} 
+
+//problem4 
+function longestWord(string) {
+    var str = string.split(" ");
+    var longest = 0;
+    var word = null;
+    for (var i = 0; i < str.length; i++) {
+        if (longest <= str[i].length) {
+            longest = str[i].length;
+            word = str[i];
+        }
+    }
+    return word;
+}
+
+//problem5 (further to discuss)
+const longest_substring = function (names) {
+let string = "";
+let ss = "";
+let namestring = names.split("");
+
+    for(j = 0; j < namestring.length; j++) {
+        for(i = j; i < namestring.length; i++) {
+            if(string.includes(namestring[i])) {
+                if (namestring[i] === " ") {
+                string+=namestring[i];
+                }
+                else {  
+                    break; 
+                }
+            }
+            else {
+                string+=namestring[i]; 
+            }
+        }
+
+        if(ss.length<string.length) {
+             ss=string;
+             string="";
+        }
+    }
+    return ss;
+}
+
+//problem6 (further to discuss)
+const new_str = function (str) {
+let strSplit = str.split("");
+let temp;
+for (let i = 0; i < strSplit.length; i += 3) {
+temp = strSplit[i + 2];
+strSplit[i + 2] = strSplit[i];
+strSplit[i] = temp;
+}
+console.log(strSplit.join(""));
+}
+
+//problem7 (further to be discussed)
+const negative = function (array) {
+let product = 1;
+let min_number = 1;
+
+for (let i = 0; i < array.length; i++) {
+for (let j = 0; j < array[i].length; j++) {
+if (array[i][j] < min_number) {
+min_number = array[i][j];
+}
+}
+product = product * min_number;
+min_number = 1;
+}
+console.log(product);
+}
+
+//problem8 
+const subArrays = function (array, n, result = [], temp = []) {
+if (n == 0) {
+result.push([...temp]);
+return true;
+}
+for (let i = 0; i < array.length; i++) {
+temp.push(array[i]);
+subArrays(array.slice(i + 1), n - 1, result, temp);
+temp.pop();
+}
+return result;
+}
+
+
+
+
+
+
+
+
+
+
