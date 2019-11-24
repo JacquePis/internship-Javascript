@@ -1,0 +1,101 @@
+//homework5
+
+//problem1
+const new_arr = function (array, i = 0) {
+if (array.length < 1) {
+return [];
+}
+if (i === array.length - 1) {
+array.pop();
+console.log(array);
+}
+
+array[i] = array[i + 1];
+new_arr(array, i + 1);
+
+}
+
+//problem2
+const flatten = function (arr) {
+  const flat = [];
+  arr.forEach(i => {
+    if (Array.isArray(i)) {
+      flat.push(...flatten(i));
+    } else {
+      flat.push(i);
+    }
+  });
+  return flat;
+}
+
+//problem3 
+const sum = function (number) {
+console.log(((number - 1) % 9) + 1);
+}
+
+//problem3 another solution (further to be discussed)
+const addition = function (number) {
+number_str = "" + number;
+let sum = 0;
+if (number_str.length === 1) {
+ console.log(sum);
+}
+sum = sum + Number(number_str.charAt(number_str.length - 1));
+addition(Math.floor(number / 10));
+}
+
+//problem4 
+const shift_arr = function (arr, spots) {
+if (spots < 0) {
+spots = arr.length + spots;
+}
+    for (let i = 0; i < spots; i++) {
+        arr.unshift(arr.pop());
+    }
+console.log(arr);
+}
+
+//problem5 further to discuss
+const invert = function (obj) {
+  const result = {};
+  Object.keys(obj).forEach(key => {
+    result[obj[key]] = key;
+  });
+  return result;
+}
+
+//problem6 further to discuss
+const book = function (array) {
+let arr = [];
+for (let i = 0; i < array.length; i++) {
+if (array[i].readStatus === true) {
+  arr.push(array[i].percent, array[i].book);
+}
+}
+const nested = function (arr) {
+let largest_percent = arr[0];
+let i;
+for (i = 0; i < arr.length; i += 2) {
+if (arr[i] > largest_percent) {
+largest_percent = arr[i];
+
+}
+}
+if (i === arr.length) {
+console.log(arr[i + 1]);
+}
+arr.splice(i, 2);
+nested(arr);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
