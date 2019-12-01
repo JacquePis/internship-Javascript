@@ -1,0 +1,334 @@
+//homework8
+
+//problem1
+class Author {
+    constructor(name, email, gender) {
+
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+
+    }
+
+    get auth_name() {
+        return this._name;
+    }
+
+    set auth_name(new_name) {
+        this._name = new_name;
+    }
+
+    get auth_email() {
+        return this._email;
+    }
+
+    set auth_email(new_email) {
+        this._email = new_email;
+    }
+
+    get auth_gender() {
+        return this._gender;
+    }
+
+    set auth_gender(new_gender) {
+        this._gender = new_gender;
+    }
+
+
+let author1 = new Author();
+
+Author.prototype.toString = function AuthorToString() {
+  return '' + this.name + ',' + this.email + ',' + this.gender;
+}
+
+console.log(author1.toString());
+
+}
+
+class Book { 
+    constructor(title, author, price, quantity) {
+
+        this.title = title;
+        this.author = Author.name;
+        this.price = price;
+        this.quantity = quantity;
+
+    }
+
+    get b_title() {
+        return this._title;
+    }
+
+    set b_title(new_title) {
+        this._title = new_title;
+    }
+
+    get b_author() {
+        return this._author;
+    }
+
+    set b_author(new_author) {
+        this._author = new_author;
+    }
+    get b_price() {
+        return this._price;
+    }
+
+    set b_price(new_price) {
+        this._price = new_price;
+    }
+
+    get b_quantity() {
+        return this._quanity;
+    }
+
+    set b_quantity(new_quantity) {
+        this._quantity = new_quantity;
+    }
+
+    getProfit() {
+        return this.price * this.quantity;
+    }
+
+let book1 = new Book();
+
+Book.prototype.toString = function BookToString() {
+  return '' + this.title + ',' + this.author + ',' + this.price + ',' + this.quantity;
+}
+
+console.log(book1.toString());
+
+}
+
+//problem2
+class Account {
+    constructor(id, name, balance) {
+
+        this.id = id;
+        this.name = name;
+        this.balance = balance;
+
+    }
+
+    get acc_id () {
+        return this._id;
+    }
+
+    get acc_name () {
+        return this._name;
+    }
+
+    set acc_name (anoherName) {
+        this._name = anotherName;
+    }
+
+    get acc_balance () {
+        return this._balance;
+    }
+
+    set acc_balance (newBalance) {
+        this._balance = newBalance;
+    }
+
+    credit(amount) {
+        return this.balance + amount;
+    }
+
+    debit(amount) {
+        if (amount < this.balance) {
+            return this.balance - amount;
+        }
+    
+        else {
+            console.log("Amount exceeded balance.");
+        }
+    }
+
+    transferTo(anotherAccount, amount) {
+        this.balance - amount;
+        anoherAccount.balance + amount;
+            if (amount < this.balance) {
+                return this.balance;
+            }
+
+            else {
+                console.log("Amount exceeded balance");
+            }
+    }
+
+//since the id of each account is unique, it is enough to compare only the id-s of the two accounts...
+
+    static identifyAccounts(accountFirst, accountSecond) {
+        if (accountFirst.id === accountSecond.id) {
+            console.log("The accounts are the same");
+        }
+
+        else {
+            console.log("The accounts are different");
+        }
+    } 
+
+let acc1 = new Account();
+
+Account.prototype.toString = function AccountToString() {
+  return '' + this.id + ',' + this.name + ',' + this.balance
+}
+
+console.log(acc1.toString());
+
+}
+
+//problem3
+class Person {
+    constructor(firstName, lastName, gender, age) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
+
+    }
+
+    get fName() {
+        return this._firstName;
+    }
+
+    set fName(new_fName) {
+        this._firstName = new_fName;
+    }
+
+    get lName() {
+        return this._lastName;
+    }
+
+    set lName(new_lName) {
+        this._lastName = new_lName;
+    }
+
+    get gender() {
+        return this._gender;
+    }
+
+    set gender(new_gender) {
+        this._gender = new_gender;
+    }
+
+    get age() {
+        return this._age;
+    }
+
+    set age(new_age) {
+        this._age = new_age;
+    }
+
+let p1 = new Person();
+
+Person.prototype.toString = function PersonToString() {
+  return '' + this.firstName + ',' + this.lastName + ',' + this.gender + ',' + this.age;
+}
+
+console.log(p1.toString());
+
+}
+
+class Student extends Person {
+    constructor(program, year, fee) {
+
+        this.program = program;
+        this.year = year;
+        this.fee = fee;
+
+    }
+
+    get program() {
+        return this._program;
+    }
+
+    set program(new_program) {
+        this._program = new_program;
+    }
+
+    get year() {
+        return this._year;
+    }
+
+    set year(new_year) {
+        this._year = new_year;
+    }
+
+    get fee() {
+        return this._fee;
+    }
+
+    set fee(new_fee) {
+        this._fee = new_fee;
+    }
+
+    passExam(program, grade) { 
+        if(grade > 50) {
+            this.year++;
+        }
+    }
+
+let student1 = new Student();
+
+Student.prototype.toString = function StudentToString() {
+  return '' + this.program + ',' + this.year + ',' + this.fee;
+}
+
+console.log(student1.toString());
+
+}
+
+class Teacher extends Person {
+    constructor(program, pay) {
+        this.program = program;
+        this.pay = pay;
+    }   
+
+    get program() {
+        return this._program;
+    }
+
+    set program(new_program) {
+        this._program = new_program;
+    }
+
+    get pay() {
+        return this._pay;
+    }
+
+    set pay(new_pay) {
+        this._pay = new_pay;
+    }
+
+let teacher1 = new Teacher();
+
+Teacher.prototype.toString = function TeacherToString() {
+  return '' + this.program + ',' + this.pay;
+}
+
+console.log(teacher1.toString());
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
